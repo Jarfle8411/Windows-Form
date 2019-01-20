@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace RN_Registered_Nurse_APP
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            {
+                string n = Convert.ToString(textBox1.Text);
+                int b = Convert.ToInt32(textBox2.Text);
+                int s = Convert.ToInt32(textBox3.Text);
+                string a = Convert.ToString(textBox4.Text);
+                string p = Convert.ToString(textBox5.Text);
+
+                // n in quotations means commas for string values
+                // c in quotations means for dollar sign
+                //Example: Label8.Text = n.ToString("n");
+
+                label8.Text = "Let get started " + n;
+                label9.Text = "Your birthday is " + b;
+                label10.Text = "Your Socail Security Number is " + s;
+                label11.Text = "This is your address " + a;
+                label12.Text = "This is your contact number " + p;
+
+                DialogResult mess = MessageBox.Show("Is this infomation correct?", "Confirmation", MessageBoxButtons.YesNoCancel);
+
+                if (mess == DialogResult.Yes)
+                {
+                    //Hides form 1
+                    this.Hide();
+
+                    // Creating a new form name form 2, and showing the next form
+                    Form2 f2 = new Form2();
+                    f2.ShowDialog();
+                }
+
+                else
+                {
+                    this.Close();
+                }
+            }
+        } 
+    }
+}
